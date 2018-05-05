@@ -1,0 +1,26 @@
+{
+  "name": "petweatherapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OriginalMidas/PetWeatherApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OriginalMidas/PetWeatherApp/issues"
+  },
+  "homepage": "https://github.com/OriginalMidas/PetWeatherApp#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "material-ui": "^1.0.0-beta.44",
+    "node": "^10.0.0",
+    "nodemon": "^1.17.3",
+    "request": "^2.85.0"
+  }
+}

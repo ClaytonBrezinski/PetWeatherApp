@@ -1,7 +1,8 @@
 import React from "react";
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button } from "material-ui";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import axios from "axios";
+import PetDetail from "./petDetail";
 
 export default class DashboardView extends React.Component {
     state = {
@@ -22,7 +23,9 @@ export default class DashboardView extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">DashboardView here </div>
+                <div className="row">
+                    <h2>Choose your pet</h2>
+                </div>
                 <div className="row">
                     <Paper>
                         <Table>
@@ -43,7 +46,7 @@ export default class DashboardView extends React.Component {
                                         <TableCell>{pet.location}</TableCell>
                                         <TableCell>
                                             <Link
-                                                to={`/pets/:${pet.id}`}
+                                                to={`/${pet.id}`}
                                                 params={{
                                                     id: pet.id,
                                                     name: pet.name,

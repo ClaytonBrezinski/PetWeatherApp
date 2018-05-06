@@ -45,18 +45,22 @@ export default class DashboardView extends React.Component {
                                         <TableCell>{pet.breed}</TableCell>
                                         <TableCell>{pet.location}</TableCell>
                                         <TableCell>
-                                            <Link
-                                                to={`/${pet.id}`}
-                                                params={{
-                                                    id: pet.id,
-                                                    name: pet.name,
-                                                    location: pet.location,
-                                                    lat: pet.lat,
-                                                    long: pet.long,
-                                                }}
-                                            >
-                                                <Button>View</Button>
-                                            </Link>
+                                            <Button>
+                                                <Link
+                                                    to={{
+                                                        pathname: `/${pet.id}`,
+                                                        state: {
+                                                            id: pet.id,
+                                                            name: pet.name,
+                                                            location: pet.location,
+                                                            lat: pet.lat,
+                                                            long: pet.long,
+                                                        },
+                                                    }}
+                                                >
+                                                    View
+                                                </Link>
+                                            </Button>
                                         </TableCell>
                                     </TableRow>
                                 ))}

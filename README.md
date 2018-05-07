@@ -36,10 +36,12 @@ The pet weather app acts as the frontend portion of a 2 system project that comm
 *   Installation: clone project to work environment `git clone https://github.com/OriginalMidas/PetWeatherApp.git`, open command prompt within created directory and install the required packages
 *   Running the app: in the project root directory run `yarn run dev` this will run the client and express app concurrently
 
-## known issues
+## Known issues
 
 *   The application is not able to communicate with the DarkSky API. In order to do so, a proxy server must be set up to make calls to DarkSky's. The addProxyServer branch showcases my attempt at routing the DarkSky API calls through the express server, but to no avail - this exposed a lack of understanding for myself.
+*   On the Heroku deployment, you are unable to make posts to the backend, due to being unable to communicate with express server. Due to time constraints, I have not been able to address the root of this issue. 
 
-## future improvements
+## Future improvements
 
 *   Postman testing of the forms
+*   Client-side form validation before making posts to the backend. 

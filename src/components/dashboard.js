@@ -29,7 +29,7 @@ export default class DashboardView extends React.Component {
                     <Paper>
                         <Table>
                             <TableHead>
-                                <TableRow onClick={console.log("clicked2")}>
+                                <TableRow>
                                     <TableCell>Name</TableCell>
                                     <TableCell>Type</TableCell>
                                     <TableCell>Breed</TableCell>

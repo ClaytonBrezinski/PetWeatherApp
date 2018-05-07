@@ -16,11 +16,12 @@ export default class CreatePetView extends React.Component {
         this.setState({ [event.target.id]: event.target.value });
     }
     formSubmit() {
+        console.log();
         axios({
             method: "post",
             url: "/createPet",
             data: {
-                name: "test",
+                name: this.state.name,
                 type: this.state.type,
                 breed: this.state.breed,
                 location: this.state.location,
@@ -88,11 +89,9 @@ export default class CreatePetView extends React.Component {
                             onChange={event => this.handleChange(event)}
                             margin="normal"
                         />
-                        <Link to={{ pathname: `/` }}>
-                            <Button style={{ backgroundColor: "#64d8cb" }} type="submit" variant="raised">
-                                Submit
-                            </Button>
-                        </Link>
+                        <Button style={{ backgroundColor: "#64d8cb" }} type="submit" variant="raised">
+                            Submit
+                        </Button>
                         <Link to={{ pathname: `/` }}>
                             <Button style={{ backgroundColor: "#ff94c2" }} variant="raised">
                                 Return

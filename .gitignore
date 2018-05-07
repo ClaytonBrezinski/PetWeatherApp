@@ -22,3 +22,5 @@ yarn-error.log*
 
 # ignore the environment variables but keep the folder
 /src/envs/
+
+\.vscode/

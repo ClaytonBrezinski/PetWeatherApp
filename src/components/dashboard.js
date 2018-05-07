@@ -26,15 +26,16 @@ export default class DashboardView extends React.Component {
                 <div className="row">
                     <h2>Choose your pet</h2>
                 </div>
-                <div className="row">
+                <div className="row" style={{ marginBottom: "10px" }}>
                     <Paper>
                         <Table>
                             <TableHead>
                                 <TableRow onClick={console.log("clicked2")}>
                                     <TableCell>Name</TableCell>
-                                    <TableCell numeric>Type</TableCell>
-                                    <TableCell numeric>Breed</TableCell>
-                                    <TableCell numeric>Location</TableCell>
+                                    <TableCell>Type</TableCell>
+                                    <TableCell>Breed</TableCell>
+                                    <TableCell>Location</TableCell>
+                                    <TableCell />
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -45,28 +46,33 @@ export default class DashboardView extends React.Component {
                                         <TableCell>{pet.breed}</TableCell>
                                         <TableCell>{pet.location}</TableCell>
                                         <TableCell>
-                                            <Button>
-                                                <Link
-                                                    to={{
-                                                        pathname: `/${pet.id}`,
-                                                        state: {
-                                                            id: pet.id,
-                                                            name: pet.name,
-                                                            location: pet.location,
-                                                            lat: pet.lat,
-                                                            long: pet.long,
-                                                        },
-                                                    }}
-                                                >
+                                            <Link
+                                                to={{
+                                                    pathname: `/${pet.id}`,
+                                                    state: {
+                                                        id: pet.id,
+                                                        name: pet.name,
+                                                        location: pet.location,
+                                                        lat: pet.lat,
+                                                        long: pet.long,
+                                                    },
+                                                }}
+                                            >
+                                                <Button style={{ backgroundColor: "#64d8cb" }} variant="raised">
                                                     View
-                                                </Link>
-                                            </Button>
+                                                </Button>
+                                            </Link>
                                         </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                     </Paper>
+                </div>
+                <div className="row">
+                    <Link to={{ pathname: `/createPet` }}>
+                        <Button style={{ backgroundColor: "#64d8cb" }} variant="raised">Add your own pet</Button>
+                    </Link>
                 </div>
             </div>
         );

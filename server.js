@@ -1,12 +1,37 @@
 const express = require("express");
-const path = require('path');
-const PORT = process.env.PORT || 3000
-const app = express();
+var request = require("request");
+var bodyParser = require("body-parser");
+var app = express();
 
+var port = process.env.PORT || 3001;
 
-  app.use(express.static(path.join(__dirname, 'public')))
-  app.set('views', path.join(__dirname, 'views'))
-  app.set('view engine', 'ejs')
-  app.get('/', (req, res) => res.send("hello world"))
-  // will change this to: res.render('/dashboard'))
-  app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+//Middleware: Allows cross-domain requests (CORS)
+var allowCrossDomain = function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+
+    next();
+};
+app.use(allowCrossDomain);
+app.use(express.static("public"));
+app.use(bodyParser.json()); // support json encoded bodies
+app.set("view engine", "ejs");
+
+app.post("/createPet", function(req, res) {
+    console.log("post received");
+    console.log(req.body);
+    console.log({ name: "cuddles", type: "cat", breed: "cuddler", location: "brussels", lat: 5, long: 5 });
+    var bodyContents = req.body;
+    request
+        .post({
+            uri: "https://clay-pet-shelter-api.herokuapp.com/api/pets/",
+            body: bodyContents,
+            // body: { name: "cuddles", type: "cat", breed: "cuddler", location: "brussels", lat: 5, long: 5 },
+            json: true,
+        })
+        .pipe(res);
+    console.log("post complete");
+});
+
+app.listen(port, () => console.log(`Listening on port ${port}`));

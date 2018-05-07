@@ -1,8 +1,7 @@
 import React from "react";
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button } from "material-ui";
-import { Link, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import axios from "axios";
-import PetDetail from "./petDetail";
 
 export default class DashboardView extends React.Component {
     state = {

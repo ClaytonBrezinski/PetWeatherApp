@@ -29,11 +29,11 @@ export default class CreatePetView extends React.Component {
             },
         })
             .then(function(response) {
-                console.log(response);
+                // console.log(response);
                 //Perform action based on response
             })
             .catch(function(error) {
-                console.log(error);
+                // console.log(error);
                 //Perform action based on error
             });
         // return to main page

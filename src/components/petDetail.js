@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "material-ui";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 export default class PetDetails extends React.Component {
     state = {
@@ -12,9 +12,8 @@ export default class PetDetails extends React.Component {
     }
 
     determineWeather() {
-        const lat = this.props.location.state.lat;
-        const long = this.props.location.state.long;
-
+        // const lat = this.props.location.state.lat;
+        // const long = this.props.location.state.long;
         // axios
         //     .get(`/darkSky/${lat},${long}`)
         //     .then(response => {

@@ -19,9 +19,6 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.set("view engine", "ejs");
 
 app.post("/createPet", function(req, res) {
-    console.log("post received");
-    console.log(req.body);
-    console.log({ name: "cuddles", type: "cat", breed: "cuddler", location: "brussels", lat: 5, long: 5 });
     var bodyContents = req.body;
     request
         .post({
@@ -31,7 +28,6 @@ app.post("/createPet", function(req, res) {
             json: true,
         })
         .pipe(res);
-    console.log("post complete");
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
